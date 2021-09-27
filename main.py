@@ -85,5 +85,6 @@ metro_graph = Graph.create_from_nodes(station_nodes) # Создаем графы
 for stat in getstation.stations_time:
     metro_graph.add_edge(metro_graph.get_node_by_name(stat[0]), metro_graph.get_node_by_name(stat[1]), stat[2])
 
-short = metro_graph.dijkstra("Ленинский проспект", "Парнас")
-print(short[0], [node.data for node in short[1]])
+short = metro_graph.dijkstra("Девяткино", "Петроградская")
+print('Time:',short[0],'min\nRoute:')
+print(*[node.data for node in short[1]], sep=' -> ')
